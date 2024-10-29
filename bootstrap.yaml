@@ -54,16 +54,16 @@
               - "ArgoCD Instance URL: https://{{ route.resources[0].spec.host }}"
               - "ArgoCD admin password: {{ secret.resources[0].data['admin.password'] | b64decode }}"
 
-    - name: "Create the ArgoCD secret to access gitops-demo git repo"
-      kubernetes.core.k8s:
-        state: present
-        definition: "{{ lookup('template', 'templates/add_gitops_demo_repo.yaml.j2') }}"
-        wait: true
-      when:
-        - argocd_repository_secret_name is defined
-        - argocd_repository_password is defined
-        - argocd_repository_url is defined
-        - argocd_repository_username is defined
+#    - name: "Create the ArgoCD secret to access gitops-demo git repo"
+#      kubernetes.core.k8s:
+#        state: present
+#        definition: "{{ lookup('template', 'templates/add_gitops_demo_repo.yaml.j2') }}"
+#        wait: true
+#      when:
+#        - argocd_repository_secret_name is defined
+#        - argocd_repository_password is defined
+#        - argocd_repository_url is defined
+#        - argocd_repository_username is defined
 
     - name: "Create the ArgoCD Bootstrap Application"
       kubernetes.core.k8s:
