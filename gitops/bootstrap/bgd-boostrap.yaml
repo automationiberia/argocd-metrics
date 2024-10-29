@@ -6,19 +6,19 @@ metadata:
   namespace: openshift-gitops
 spec:
   generators:
-  - pullRequest:
-      github:
-        owner: silvinux
-        repo: argocd-metrics
-        labels:
-        - preview
+    - pullRequest:
+        github:
+          owner: silvinux
+          repo: argocd-metrics
+          labels:
+            - preview
       requeueAfterSeconds: 5
   template:
     metadata:
       name: 'bgd-{{branch}}-{{number}}'
     spec:
       source:
-        repoURL: 'https://github.com/automationiberia/argocd-metrics.git"
+        repoURL: 'https://github.com/automationiberia/argocd-metrics.git'
         targetRevision: '{{head_sha}}'
         path: applications/bgd/overlays/default
       project: default
