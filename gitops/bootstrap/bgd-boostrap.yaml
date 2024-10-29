@@ -10,6 +10,9 @@ spec:
         github:
           owner: silvinux
           repo: argocd-metrics
+          tokenRef:
+            secretName: github-token
+            key: token
           labels:
             - preview
       requeueAfterSeconds: 5
