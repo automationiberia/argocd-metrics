@@ -1,0 +1,3 @@
+ansible-navigator.log
+group_vars/cluster1/vault.yaml
+*-artifact-*.json

@@ -1,0 +1,34 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: bgd-pr-testing
+  namespace: argocd
+spec:
+  generators:
+  - pullRequest:
+      github:
+        owner: silvinux
+        repo: argocd-metrics
+        labels:
+        - preview
+      requeueAfterSeconds: 5
+  template:
+    metadata:
+      name: 'bgd-{{branch}}-{{number}}'
+    spec:
+      source:
+        repoURL: 'https://github.com/automationiberia/argocd-metrics.git"
+        targetRevision: '{{head_sha}}'
+        path: applications/bgd/overlays/default
+      project: default
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: 'bgd-{{branch}}-{{number}}'
+...
