@@ -7,6 +7,7 @@ metadata:
 spec:
   generators:
     - pullRequest:
+        requeueAfterSeconds: 5
         github:
           owner: automationiberia
           repo: argocd-metrics
@@ -15,7 +16,6 @@ spec:
             key: token
           labels:
             - preview
-      requeueAfterSeconds: 5
   template:
     metadata:
       name: 'bgd-{{branch}}-{{number}}'
