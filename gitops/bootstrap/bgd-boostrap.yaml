@@ -11,9 +11,6 @@ spec:
         github:
           owner: automationiberia
           repo: argocd-metrics
-          tokenRef:
-            secretName: github-token
-            key: token
           labels:
             - preview
   template:
