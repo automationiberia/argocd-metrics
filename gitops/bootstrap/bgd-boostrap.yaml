@@ -8,7 +8,7 @@ spec:
   generators:
     - pullRequest:
         github:
-          owner: silvinux
+          owner: automationiberia
           repo: argocd-metrics
           tokenRef:
             secretName: github-token
