@@ -23,7 +23,7 @@ spec:
       source:
         repoURL: 'https://github.com/automationiberia/argocd-metrics.git'
         targetRevision: '{{head_sha}}'
-        path: applications/bgd/overlays/default
+        path: gitops/applications/bgd/overlays/default
       project: default
       syncPolicy:
         automated:
