@@ -7,14 +7,14 @@ metadata:
 spec:
   monitoring:
      enabled: true
-   notifications:
-     enabled: true
-   prometheus:
-     enabled: true
-     ingress:
-       enabled: false
-     route:
-       enabled: false
+  notifications:
+    enabled: true
+  prometheus:
+    enabled: true
+    ingress:
+      enabled: false
+    route:
+      enabled: false
   applicationSet:
     enabled: true
   controller:
